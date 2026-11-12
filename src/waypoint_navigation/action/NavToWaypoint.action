@@ -1,0 +1,6 @@
+geometry_msgs/Pose waypoint
+bool hover
+---
+int32 hov_time
+---
+geometry_msgs/PoseStamped current_waypoint

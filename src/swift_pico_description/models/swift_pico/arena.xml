@@ -1,0 +1,43 @@
+<mujoco model="khojo_arena">
+
+  <option gravity="0 0 -9.81" timestep="0.005" integrator="RK4"/>
+
+  <visual>
+
+    <headlight ambient="0.7 0.7 0.7" diffuse="0.9 0.9 0.9" specular="0.1 0.1 0.1"/>
+    <rgba haze="0.0 0.0 0.0 1"/>
+
+    <global azimuth="120" elevation="-20" offwidth="1920" offheight="1920"/>
+
+    <quality offsamples="0" shadowsize="0" numslices="14" numstacks="8" numquads="2"/>
+  </visual>
+
+  <asset>
+
+    <texture type="skybox" builtin="gradient" rgb1="0.4 0.6 0.8" rgb2="0 0 0"
+             width="512" height="512"/>
+
+    <material name="floor_mat" rgba="0.15 0.15 0.15 1" reflectance="0.0"/>
+
+    <texture name="arena_tex" type="2d" file="meshes/textures/Khojo_Arena.png"/>
+    <material name="arena_mat" texture="arena_tex" texuniform="true" texrepeat="0.11547 0.11547"
+              rgba="1 1 1 1  " reflectance="0.0"/>
+
+    <mesh name="triangle_marker" file="meshes/triangle_marker.obj"/>
+  </asset>
+
+  <worldbody>
+
+    <light pos="0 0 10" dir="0 0 -1" directional="true" castshadow="false"
+           diffuse="0.9 0.9 0.9" specular="0.1 0.1 0.1"/>
+    <light pos="0 0 20" dir="0 0 -1" directional="true"
+           diffuse="0.8 0.8 0.8" specular="0.0 0.0 0.0" castshadow="false"/>
+    <geom name="floor" type="plane" size="20 20 0.1" material="floor_mat"
+          contype="1" conaffinity="1"/>
+
+    <geom name="arena_floor" type="plane" size="8.6603 8.6603 0.01" pos="0 0 0.001"
+          material="arena_mat" contype="0" conaffinity="0"/>
+
+    <camera name="top_cam" pos="0 0 15" xyaxes="1 0 0 0 1 0" fovy="60"/>
+  </worldbody>
+</mujoco>

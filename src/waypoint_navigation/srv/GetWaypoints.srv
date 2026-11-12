@@ -1,0 +1,4 @@
+bool get_waypoints
+---
+geometry_msgs/PoseArray waypoints
+string[] marker_ids
